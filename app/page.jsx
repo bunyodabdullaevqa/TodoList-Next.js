@@ -17,6 +17,12 @@ const page = () => {
 			title: 'Finish homework',
 			completed: false,
 		},
+		{
+			userId: 7,
+			id: 4,
+			title: 'Read a book',
+			completed: false,
+		},
 	]);
 
 	const [selectedTodo, setSelectedTodo] = useState(null);
@@ -31,6 +37,9 @@ const page = () => {
 		setSelectedTodo(null);
 	};
 
+	const deleteTodo = (id) => {
+		setTodos(todos.filter((item) => item.id !== id));
+	};
 	const toggleComplete = (id) => {
 		setTodos(
 			todos.map((item) =>
@@ -43,20 +52,18 @@ const page = () => {
 			)
 		);
 	};
-	const deleteTodo = (id) => {
-		setTodos(todos.filter((item) => item.id !== id));
-	};
 
 	const onSelectTodo = (todo) => {
 		setSelectedTodo(todo);
 	};
+
 	return (
-		<div className=' flex justify-center items-center h-full space-4 bg-gradient-to-r from-red-500 to-yellow-400'>
-			<div className='bg-indigo-900 flex flex-col gap-10 text-white p-10 text-center  h-1/2 w-2/3 lg:w-1/3 rounded-lg '>
-				<h1 className=' text-4xl uppercase font-bold'>Todo List App</h1>
+		<div className=' flex justify-center items-center h-full space-4 bg-gradient-to-r from-orange-300 to-red-400'>
+			<div className='bg-indigo-700 flex flex-col gap-10 text-white p-10 text-center  h-1/2 w-2/3 lg:w-1/3 rounded-lg '>
+				<h1 className=' text-4xl uppercase font-bold'>My Todo List</h1>
 				<TodoForm
-					selectedTodo={selectedTodo}
 					createTodo={createTodo}
+					selectedTodo={selectedTodo}
 					updateTodo={updateTodo}
 				/>
 				<div className='overflow-auto'>

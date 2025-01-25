@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidV4 } from 'uuid';
-const TodoForm = ({ createTodo, selectedTodo, updateTodo }) => {
+const TodoForm = ({ createTodo, updateTodo, selectedTodo }) => {
 	const [value, setValue] = useState('');
 	const onSubmit = (e) => {
 		e.preventDefault();
-
 		const newTodo = {
-			userId: 3,
+			userId: 5,
 			id: uuidV4(),
 			title: value,
 			completed: false,
@@ -19,6 +18,7 @@ const TodoForm = ({ createTodo, selectedTodo, updateTodo }) => {
 		} else {
 			createTodo(newTodo);
 		}
+
 		setValue('');
 	};
 
@@ -36,8 +36,8 @@ const TodoForm = ({ createTodo, selectedTodo, updateTodo }) => {
 				placeholder='Type your text here'
 				className='flex-1 rounded-l-lg text-black px-5'
 			/>
-			<button className='bg-purple-500 py-2 px-4 rounded-r-lg'>
-				{selectedTodo ? 'Edit Todo' : 'Add Task'}
+			<button type='submit ' className='bg-purple-500 py-2 px-4 rounded-r-lg'>
+				{selectedTodo ? 'Edit Todo' : '	Add Task'}
 			</button>
 		</form>
 	);

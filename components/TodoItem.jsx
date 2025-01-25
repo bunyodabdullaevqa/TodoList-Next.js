@@ -1,13 +1,10 @@
 const TodoItem = ({ todo, deleteTodo, toggleComplete, onSelectTodo }) => {
 	return (
-		<div
-			key={todo.id}
-			className='flex rounded-lg  overflow-hidden bg-gradient-to-r from-purple-600 to-purple-200 items-center'
-		>
+		<div className='flex rounded-lg  overflow-hidden bg-gradient-to-r from-purple-600 to-purple-200 items-center'>
 			<p
 				onClick={() => toggleComplete(todo.id)}
-				className={` cursor-pointer text-left flex-1 px-5 ${
-					todo.completed && 'line-through text-yellow-500'
+				className={`cursor-pointer text-left flex-1  px-5  ${
+					todo.completed && 'line-through text-black'
 				}`}
 			>
 				{todo.title}
